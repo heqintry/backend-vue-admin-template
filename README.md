@@ -1,5 +1,5 @@
-> Base on http://panjiachen.github.io/vue-admin-template
-> Used with https://github.com/heqintry/backend-vue-admin-template
+> Base on http://panjiachen.github.io/vue-admin-template  
+> Used with https://github.com/heqintry/backend-vue-admin-template  
 
 * `git clone https://github.com/heqintry/bakcend-vue-admin-template`
 * `npm install`
