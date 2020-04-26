@@ -39,8 +39,12 @@ export function filterAsyncRoutes(routes, roles, routeApis) {
     if (hasPermission(roles, routeApis, tmp)) {
       if (tmp.children) {
         tmp.children = filterAsyncRoutes(tmp.children, roles, routeApis)
+        if (tmp.children.length > 0) {
+          res.push(tmp)
+        }
+      } else {
+        res.push(tmp)
       }
-      res.push(tmp)
     }
   })
 
