@@ -3,30 +3,14 @@ import request from '@/utils/request'
 export default {
   index(data) {
     return request({
-      url: '/admin/role/index',
+      url: '/article/index',
       method: 'get',
-      data
-    })
-  },
-  view(id) {
-    return request({
-      url: '/admin/role/view',
-      method: 'get',
-      params: {
-        id
-      }
-    })
-  },
-  create(data) {
-    return request({
-      url: '/admin/role/create',
-      method: 'post',
       data
     })
   },
   update(id, data) {
     return request({
-      url: '/admin/role/update',
+      url: '/article/update',
       method: 'post',
       params: {
         id
@@ -36,31 +20,29 @@ export default {
   },
   delete(id) {
     return request({
-      url: '/admin/role/delete',
+      url: '/article/delete',
       method: 'post',
       params: {
         id
-      },
+      }
     })
   },
-  assign(id, data) {
+  publish(id) {
     return request({
-      url: '/admin/role/assign',
+      url: '/article/publish',
       method: 'post',
       params: {
         id
-      },
-      data
+      }
     })
   },
-  remove(id, data) {
+  draft(id) {
     return request({
-      url: '/admin/role/remove',
+      url: '/article/draft',
       method: 'post',
       params: {
         id
-      },
-      data
+      }
     })
-  }
+  },
 }

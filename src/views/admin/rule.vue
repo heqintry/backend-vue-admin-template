@@ -192,14 +192,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.filter-container {
-  padding-bottom: 10px;
-}
-.filter-container .filter-item {
-  display: inline-block;
-  vertical-align: middle;
-  margin-bottom: 10px;
-}
-</style>

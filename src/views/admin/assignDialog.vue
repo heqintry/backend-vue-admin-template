@@ -1,11 +1,13 @@
 <template>
-  <el-dialog title="Assign" :visible.sync="dialogVisible">
-    <el-transfer
-      v-model="value"
-      :data="data"
-      @change="handleChange"
-      :titles="['Available', 'Assigned']"
-    ></el-transfer>
+  <el-dialog title="Assign" :visible.sync="dialogVisible" width="925px">
+    <div class="assignDialog-transfer">
+      <el-transfer
+        v-model="value"
+        :data="data"
+        @change="handleChange"
+        :titles="['Available', 'Assigned']"
+      ></el-transfer>
+    </div>
   </el-dialog>
 </template>
 
@@ -77,3 +79,16 @@ export default {
   }
 };
 </script>
+
+<style>
+.assignDialog-transfer .el-transfer-panel {
+  width: 350px;
+  height: 400px;
+}
+.assignDialog-transfer .el-transfer-panel__body {
+  height: 100%;
+}
+.assignDialog-transfer .el-transfer-panel__list {
+  height: 100%;
+}
+</style>

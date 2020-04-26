@@ -4,14 +4,14 @@ export default {
   index(data) {
     return request({
       url: '/admin/assignment/index',
-      method: 'post',
+      method: 'get',
       data
     })
   },
   view(id) {
     return request({
       url: '/admin/assignment/view',
-      method: 'get',
+      method: 'post',
       params: {
         id
       }

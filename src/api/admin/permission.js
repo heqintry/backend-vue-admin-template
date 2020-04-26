@@ -4,7 +4,7 @@ export default {
   index(data) {
     return request({
       url: '/admin/permission/index',
-      method: 'post',
+      method: 'get',
       data
     })
   },

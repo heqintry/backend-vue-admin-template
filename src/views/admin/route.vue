@@ -1,11 +1,23 @@
 <template>
   <div class="app-container">
-    <el-transfer
-      v-model="value"
-      :data="data"
-      @change="handleChange"
-      :titles="['Available', 'Assigned']"
-    ></el-transfer>
+    <div class="filter-container">
+      <el-input v-model="route" placeholder="Route" style="width: 300px;" class="filter-item" />
+      <el-button
+        class="filter-item"
+        style="margin-left: 10px;"
+        type="primary"
+        icon="el-icon-edit"
+        @click="handleCreate"
+      >Add Route</el-button>
+    </div>
+    <div class="route-transfer">
+      <el-transfer
+        v-model="value"
+        :data="data"
+        @change="handleChange"
+        :titles="['Available', 'Assigned']"
+      ></el-transfer>
+    </div>
   </div>
 </template>
 
@@ -15,6 +27,7 @@ import route from "@/api/admin/route";
 export default {
   data() {
     return {
+      route: "",
       data: [],
       value: []
     };
@@ -81,18 +94,44 @@ export default {
             }
           });
       }
+    },
+    handleCreate() {
+      if (!this.route) {
+        this.$notify({
+          title: "Error",
+          message: "Route must required",
+          type: "error",
+          duration: 5000
+        });
+        return;
+      }
+      route.create({ route: this.route }).then(response => {
+        if (response.code == 20000) {
+          this.route = "";
+          this.getIndex();
+        } else {
+          this.$notify({
+            title: "Error",
+            message: response.message,
+            type: "error",
+            duration: 5000
+          });
+        }
+      });
     }
   }
 };
 </script>
 
-<style scoped>
-.filter-container {
-  padding-bottom: 10px;
+<style>
+.route-transfer .el-transfer-panel {
+  width: 400px;
+  height: 600px;
 }
-.filter-container .filter-item {
-  display: inline-block;
-  vertical-align: middle;
-  margin-bottom: 10px;
+.route-transfer .el-transfer-panel__body {
+  height: 100%;
+}
+.route-transfer .el-transfer-panel__list {
+  height: 100%;
 }
 </style>
