@@ -1,3 +1,13 @@
+> Base on http://panjiachen.github.io/vue-admin-template
+> Used with https://github.com/heqintry/backend-vue-admin-template
+
+* `git clone https://github.com/heqintry/bakcend-vue-admin-template`
+* `npm install`
+* `npm run dev` OR `npm run build:prod`
+
+
+---
+
 # vue-admin-template
 
 English | [简体中文](./README-zh.md)
